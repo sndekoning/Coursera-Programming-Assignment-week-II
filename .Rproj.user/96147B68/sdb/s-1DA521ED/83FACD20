@@ -1,0 +1,18 @@
+{
+    "contents" : "pollutantmean <- function(directory, pollutant, id = 1:332){\n    \n    ## Lists all \".csv\" files within a directory specified in argument \"directory\", and creates \n    ## a dataframe for monitor id for argument \"id\"\n        all_files <- list.files(directory, pattern = \".csv\", full.names = TRUE)\n    dat <- data.frame()\n    for(i in id){\n        dat <- rbind(dat, read.csv(all_files[i]))\n    }\n    \n    ## Removes missing entries\n    \n    clean_dat <- na.omit(dat)\n    \n    ## Gives the mean of the pollutant specified of the monitors specified\n    \n    mean(clean_dat[, pollutant])\n}",
+    "created" : 1452608794344.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3863158462",
+    "id" : "83FACD20",
+    "lastKnownWriteTime" : 1452612657,
+    "path" : "F:/Mijn Documenten/Coding Stuffs/Coursera/Homework Assignment WK 2/pollutantmean.R",
+    "project_path" : "pollutantmean.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "type" : "r_source"
+}
