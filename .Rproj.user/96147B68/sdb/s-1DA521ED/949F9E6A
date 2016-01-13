@@ -1,0 +1,18 @@
+{
+    "contents" : "complete <- function(directory, id = 1:332){\n    \n    ## Lists all \".csv\" files within a directory specified in argument \"directory\", and creates \n    ## a dataframe for monitor id for argument \"id\"\n    all_files <- list.files(directory, pattern = \".csv\", full.names = TRUE)\n    for(i in id){\n        dat <- data.frame(read.csv(all_files))\n    }\n    \n}\n## Creates a number vector for the total available data-entries\ndata_available <- complete.cases(dat)\n\n\n\n## Creates a dataframe of available data-entries per monitor ID.\ncomplete_cases_DF <- data.frame(id, nobs)\ncomplete_cases_DF\n}",
+    "created" : 1452711578944.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2802640018",
+    "id" : "949F9E6A",
+    "lastKnownWriteTime" : 1452719851,
+    "path" : "F:/Mijn Documenten/Coding Stuffs/Coursera/Homework Assignment WK 2/test.R",
+    "project_path" : "test.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

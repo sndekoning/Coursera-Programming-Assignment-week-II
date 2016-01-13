@@ -1,12 +1,12 @@
 {
-    "contents" : "complete <- function(directory, id = 1:332){\n    \n    ## Lists all \".csv\" files within a directory specified in argument \"directory\", and creates \n    ## a dataframe for monitor id for argument \"id\"\n    all_files <- list.files(directory, pattern = \".csv\", full.names = TRUE)\n        dat <- data.frame()\n    for(i in id){\n        dat <- rbind(dat, read.csv(all_files[i]))\n    }\n    \n    ## Creates a number vector for the total available data-entries\n        data_available <- complete.cases(dat)\n        nobs <- sum(data_available)\n    \n    \n    \n    ## Creates a dataframe of available data-entries per monitor ID.\n    complete_cases_DF <- data.frame(id, nobs)\n    complete_cases_DF\n}",
+    "contents" : "complete <- function(directory, id = 1:332){\n    \n    ## Lists all \".csv\" files within a directory specified in argument \"directory\", and creates \n    ## a dataframe for monitor id for argument \"id\"\n    all_files <- list.files(directory, pattern = \".csv\", full.names = TRUE)\n        dat <- data.frame()\n    for(i in id){\n        dat <- rbind(dat, read.csv(all_files[i]), nrow = 10)\n    }\n        \n}\n    ## Creates a number vector for the total available data-entries\n    data_available <- complete.cases(dat)\n    \n    \n  \n    ## Creates a dataframe of available data-entries per monitor ID.\n    complete_cases_DF <- data.frame(id, nobs)\n    complete_cases_DF\n}",
     "created" : 1452612129345.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "3422060147",
+    "hash" : "1056965186",
     "id" : "947E4BD9",
-    "lastKnownWriteTime" : 1452615042,
+    "lastKnownWriteTime" : 1452719854,
     "path" : "F:/Mijn Documenten/Coding Stuffs/Coursera/Homework Assignment WK 2/complete.R",
     "project_path" : "complete.R",
     "properties" : {
