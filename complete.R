@@ -1,20 +1,15 @@
 complete <- function(directory, id = 1:332){
     
-    ## Lists all ".csv" files within a directory specified in argument "directory", and creates 
-    ## a dataframe for monitor id for argument "id"
     all_files <- list.files(directory, pattern = ".csv", full.names = TRUE)
-        dat <- data.frame()
-    for(i in id){
-        dat <- rbind(dat, read.csv(all_files[i]), nrow = 10)
+    complete_cases_df <- data.frame()
+    
+    for(i in id) {
+        dat <- read.csv(all_files[i])
+        data_available <- complete.cases(dat)
+        no_na <- dat[data_available, ]
+        complete_cases_df <- rbind(complete_cases_df, c(i, nrow(no_na)))
     }
-        
-}
-    ## Creates a number vector for the total available data-entries
-    data_available <- complete.cases(dat)
-    
-    
-  
-    ## Creates a dataframe of available data-entries per monitor ID.
-    complete_cases_DF <- data.frame(id, nobs)
-    complete_cases_DF
+
+    names(complete_cases_df) <- c("id", "nobs")
+    complete_cases_df
 }
